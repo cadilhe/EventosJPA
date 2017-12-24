@@ -1,6 +1,6 @@
 package eventum.dao;
 
-import exemplo.jpa.modelo.Local;
+import eventum.model.Local;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

@@ -1,9 +1,9 @@
 package eventum.test;
 
-import exemplo.jpa.dao.PalestraDAO;
-import exemplo.jpa.modelo.Local;
-import exemplo.jpa.modelo.Palestra;
-import exemplo.jpa.modelo.Palestrante;
+import eventum.dao.PalestraDAO;
+import eventum.model.Local;
+import eventum.model.Palestra;
+import eventum.model.Palestrante;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,14 +20,15 @@ public class TesteEvento {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
         Local l1 = new Local();
-        l1.setPredio("Lambda");
-        l1.setSala("L115");
-        l1.setCapacidade(80);
+        l1.setId(1);
+//        l1.setPredio("Lambda");
+//        l1.setSala("L115");
+//        l1.setCapacidade(80);
         
-        Palestra p = new Palestra();
-        p.setTitulo("Relacionamento com JPA");
-        p.setLocal(l1);
-        p.setDataHora(df.parse("26/09/2014 19:00"));
+        Palestra p1 = new Palestra();
+        p1.setTitulo("Relacionamento @OneToMay e @ManyToOne com JPA");
+        p1.setLocal(l1);
+        p1.setDataHora(df.parse("27/09/2014 20:00"));
         
         
         Palestrante pa = new Palestrante();
@@ -37,14 +38,14 @@ public class TesteEvento {
         List<Palestrante> palestrantes = new ArrayList();
         palestrantes.add(pa);
         
-        p.setPalestrantes(palestrantes);
-        pa.setPalestra(p);
+        p1.setPalestrantes(palestrantes);
+        pa.setPalestra(p1);
         
         
         PalestraDAO dao = new PalestraDAO();
-        p = dao.salvar(p);
+        p1 = dao.salvar(p1);
         
-        System.out.println("Palestra " + p.getTitulo() + " salva com sucesso");
+        System.out.println("Palestra " + p1.getTitulo() + " salva com sucesso");
         
         
 

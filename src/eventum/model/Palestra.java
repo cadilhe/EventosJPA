@@ -34,7 +34,7 @@ public class Palestra implements java.io.Serializable {
     
     private int duracao;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Local local;
     
     @OneToMany(cascade = CascadeType.ALL)
