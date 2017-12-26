@@ -1,5 +1,4 @@
 package eventum.model;
-// Generated 29/11/2017 21:51:00 by Hibernate Tools 4.3.1
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +16,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "local")
-public class Local implements java.io.Serializable {
+public class Local implements EntidadeBase {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String predio;
 
@@ -29,6 +28,7 @@ public class Local implements java.io.Serializable {
 
     private int capacidade;
 
+    // RELACIONAMENTO LOCAL-PALESTRA
     @OneToMany(
             fetch = FetchType.LAZY,
             mappedBy = "local",
@@ -36,15 +36,16 @@ public class Local implements java.io.Serializable {
             cascade = CascadeType.ALL)
     private final List<Palestra> palestras = new ArrayList<Palestra>();
 
+    // CONSTRUTOR SEM ARGUMENTOS
     public Local() {
     }
 
     // Getters e Setters
-    public Integer getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

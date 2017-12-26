@@ -1,5 +1,4 @@
 package eventum.model;
-// Generated 29/11/2017 21:51:00 by Hibernate Tools 4.3.1
 
 import java.util.Objects;
 import javax.persistence.Column;
@@ -12,33 +11,33 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "palestrante")
-public class Palestrante implements java.io.Serializable {
+public class Palestrante implements EntidadeBase {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column
-    private Integer id;
+    private Long id;
     
     private String nome;
     
     @Column(name = "mini_bio")
     private String miniBio;
     
+    // RELACIONAMENTO PALESTRANTE-PALESTRA
     @ManyToOne
     private Palestra palestra;
     
-    // CONSTRUTOR
+    // CONSTRUTOR SEM ARGUMENTOS
     public Palestrante() {        
     }
     
     
     // GETTERS E SETTERS
-
-    public Integer getId() {
+    public Long getId(){
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,8 +66,7 @@ public class Palestrante implements java.io.Serializable {
     }
     
     
-    // HASHCODE, EQUALS, TOSTRING
-
+    // HASHCODE
     @Override
     public int hashCode() {
         int hash = 3;
@@ -76,6 +74,7 @@ public class Palestrante implements java.io.Serializable {
         return hash;
     }
 
+    // EQUALS
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -94,6 +93,7 @@ public class Palestrante implements java.io.Serializable {
         return true;
     }
 
+    // TOSTRING
     @Override
     public String toString() {
         return "Palestrante{" + "id=" + id + ", nome=" + nome + ", miniBio=" + miniBio + ", palestra=" + palestra + '}';

@@ -1,5 +1,4 @@
 package eventum.model;
-// Generated 29/11/2017 21:51:00 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import java.util.List;
@@ -20,7 +19,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "palestra")
-public class Palestra implements java.io.Serializable {
+public class Palestra implements EntidadeBase {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -34,9 +33,11 @@ public class Palestra implements java.io.Serializable {
     
     private int duracao;
     
+    // RELACIONAMENTO PALESTRA-LOCAL
     @OneToOne
     private Local local;
     
+    // RELACIONAMENTO PALESTRA-PALESTRANTES
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "palestra_id")
     private List<Palestrante> palestrantes;
@@ -46,7 +47,6 @@ public class Palestra implements java.io.Serializable {
     }
 
     // GETTERS E SETTERS
-
     public Long getId() {
         return id;
     }
@@ -95,8 +95,7 @@ public class Palestra implements java.io.Serializable {
         this.palestrantes = palestrantes;
     }
     
-    // HASHCODE, EQUALS, TOSTRING
-
+    // HASHCODE
     @Override
     public int hashCode() {
         int hash = 7;
@@ -104,6 +103,7 @@ public class Palestra implements java.io.Serializable {
         return hash;
     }
 
+    //EQUALS
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -122,6 +122,7 @@ public class Palestra implements java.io.Serializable {
         return true;
     }
 
+    //TOSTRING
     @Override
     public String toString() {
         return "Palestra{" + "id=" + id + ", titulo=" + titulo + ", dataHora=" + dataHora + ", duracao=" + duracao + ", local=" + local + ", palestrantes=" + palestrantes + '}';
