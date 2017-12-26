@@ -2,30 +2,42 @@ package eventum.dao;
 
 import eventum.model.Evento;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 public class EventoDAO extends DAO<Evento> {
 
     @Override
+    public Evento getById(final Long id) {
+        return em.find(Evento.class, id);
+    }
+
+    @Override
+    public boolean removeById(final Long id) {
+
+        boolean result = true;
+
+        try {
+            Evento evento = this.getById(id);
+            super.remove(evento);
+        } catch (Exception ex) {
+            result = false;
+        }
+        return result;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
     public List<Evento> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.createQuery("FROM Evento").getResultList();
     }
 
-    @Override
-    public Evento getById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public Evento consultarPorId(Long id) {
 
-    @Override
-    public boolean removeById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Evento l = null;
+        try {
+            l = em.find(Evento.class, id); // executa o select
+        } finally {
+            em.close();
+        }
+        return l;
     }
-
-    
-    
-    
-    
 }
-
