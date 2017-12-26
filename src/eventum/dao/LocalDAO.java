@@ -18,7 +18,7 @@ public class LocalDAO extends DAO<Local> {
     	
         try {
             Local local = this.getById(id);
-            super.remove(local);
+            super.remover(local);
         } catch (Exception ex) {
             ex.printStackTrace();
             result = false;
@@ -41,4 +41,6 @@ public class LocalDAO extends DAO<Local> {
         }
         return l;
     }
+
+    
 }

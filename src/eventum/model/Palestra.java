@@ -34,7 +34,7 @@ public class Palestra implements EntidadeBase {
     private int duracao;
     
     // RELACIONAMENTO PALESTRA-LOCAL
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Local local;
     
     // RELACIONAMENTO PALESTRA-PALESTRANTES

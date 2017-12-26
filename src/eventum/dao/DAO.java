@@ -31,7 +31,7 @@ public abstract class DAO<E> { // E de element
 
 // MÉTODOS DE PERSISTÊNCIA
     // salvar objeto
-    public boolean persist(E object) {
+    public boolean salvar(E object) {
 
         boolean result = true;
 
@@ -48,7 +48,7 @@ public abstract class DAO<E> { // E de element
     }
 
     // atualizar objeto
-    public boolean merge(E object) {
+    public boolean atualizar(E object) {
 
         boolean result = true;
 
@@ -65,7 +65,7 @@ public abstract class DAO<E> { // E de element
     }
 
     // remover objeto
-    public boolean remove(E object) {
+    public boolean remover(E object) {
 
         boolean result = true;
 

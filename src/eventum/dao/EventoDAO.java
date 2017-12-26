@@ -17,7 +17,7 @@ public class EventoDAO extends DAO<Evento> {
 
         try {
             Evento evento = this.getById(id);
-            super.remove(evento);
+            super.remover(evento);
         } catch (Exception ex) {
             result = false;
         }

@@ -16,7 +16,7 @@ public class DeleteLocal {
         
         LocalDAO ldao = new LocalDAO();
         
-        ldao.remover(1L);
+        ldao.removeById(1L);
     }
     
 }

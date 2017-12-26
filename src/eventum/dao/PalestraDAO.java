@@ -17,7 +17,7 @@ public class PalestraDAO extends DAO<Palestra> {
 
         try {
             Palestra palestra = this.getById(id);
-            super.remove(palestra);
+            super.remover(palestra);
         } catch (Exception ex) {
             result = false;
         }
