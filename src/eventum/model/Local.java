@@ -33,7 +33,7 @@ public class Local implements EntidadeBase {
             fetch = FetchType.LAZY,
             mappedBy = "local",
             targetEntity = Palestra.class,
-            cascade = CascadeType.ALL)
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,CascadeType.REFRESH})
     private final List<Palestra> palestras = new ArrayList<Palestra>();
 
     // CONSTRUTOR SEM ARGUMENTOS

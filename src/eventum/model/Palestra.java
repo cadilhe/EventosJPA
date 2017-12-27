@@ -34,11 +34,11 @@ public class Palestra implements EntidadeBase {
     private int duracao;
     
     // RELACIONAMENTO PALESTRA-LOCAL
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,CascadeType.REFRESH})
     private Local local;
     
     // RELACIONAMENTO PALESTRA-PALESTRANTES
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,CascadeType.REFRESH})
     @JoinColumn(name = "palestra_id")
     private List<Palestrante> palestrantes;
 
